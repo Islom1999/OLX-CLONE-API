@@ -23,7 +23,7 @@ model Users {
 
 model Posters {
   id         Int       @id @default(autoincrement())
-  image      String
+  image      String?
   title      String
   amount     Int
   descr      String

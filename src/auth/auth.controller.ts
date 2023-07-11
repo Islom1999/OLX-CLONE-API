@@ -19,13 +19,8 @@ export class AuthController {
   @Post('login')
   async login(
     @Body() loginDto: LoginDto, 
-    // @Req() request,
-    // @Res() response: Response
   ) {
     const user = await this.authService.login(loginDto);
-
-    // request.session.user = user
-    // response.cookie('user', 'value')
 
     return user;
   }
