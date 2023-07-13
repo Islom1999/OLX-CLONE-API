@@ -41,7 +41,7 @@ export class AuthService {
         throw new HttpException('Invalid password', HttpStatus.BAD_REQUEST);
     }
 
-    const token = await this.generateToken({name: user.fullname, email: user.email});
+    const token = await this.generateToken({id: user.id, email: user.email});
 
     user = await this.prismaService.users.update({data: {token}, where: {email: loginDto.email} });
 

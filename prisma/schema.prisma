@@ -18,7 +18,7 @@ model Users {
   password String
   region   String
   token    String?
-  Posrers  Posters[]
+  Posters  Posters[]
 }
 
 model Posters {
@@ -38,5 +38,5 @@ model Posters {
 model Category {
   id      Int       @id @default(autoincrement())
   title   String
-  Posrers Posters[]
+  Posters Posters[]
 }

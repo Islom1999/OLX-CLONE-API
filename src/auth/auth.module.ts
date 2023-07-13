@@ -11,8 +11,8 @@ import { SharedModule } from 'src/shared/sharedModule';
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secret: 'sizning-maxfiy-kalitingiz', // JWT ni imzolash uchun o'z maxfiy kalitingizni kiriting
-      signOptions: { expiresIn: '1d' }, // JWT amal qilish muddati
+      secret: process.env.SECRET_KEY, 
+      signOptions: { expiresIn: '1d' },
     }),
     SharedModule
   ],
