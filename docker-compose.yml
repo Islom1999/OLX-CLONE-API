@@ -1,18 +1,22 @@
 version: '3.8'
 services:
-  app: 
-    build: './' 
-    image: olx-app
-    container_name: olx-app
-    # restart: always
-    ports:
-      - 3000:3000
-    env_file:
-      - .env_deployment
+  # app: 
+  #   build: './' 
+  #   image: olx-app
+  #   container_name: olx-app
+  #   # restart: always
+  #   ports:
+  #     - 3000:3000
+  #   environment: 
+  #       DATABASE_URL: 'postgresql://postgres:123@localhost:5432/olxclone?schema=public'
+  #       PORT: 3000
+  #       SECRET_KEY: 'islom'
+  #   # env_file:
+  #   #   - .env.deploy
   db:
     image: postgres:13
     container_name: postgres
-    # restart: always
+    restart: always
     ports:
       - 5432:5432
     environment:

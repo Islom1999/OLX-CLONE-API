@@ -9,8 +9,8 @@ COPY . .
 RUN npm i
 RUN npm run build
 
-RUN npx prisma migrate dev --name init
-RUN npx prisma generate
+# RUN npx prisma migrate dev --name init
+# RUN npx prisma generate
 
 EXPOSE 3000
 
