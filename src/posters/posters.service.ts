@@ -28,7 +28,7 @@ export class PostersService {
       createPosterDto.categoryId = +createPosterDto.categoryId
       createPosterDto['authorId'] = +userId
   
-      const data = {...createPosterDto, image: image.filename}
+      const data = {...createPosterDto, image: image.filename} 
 
       const user = await this.prismaService.posters.create({data});
   

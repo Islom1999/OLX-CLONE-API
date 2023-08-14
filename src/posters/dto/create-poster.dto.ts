@@ -1,23 +1,27 @@
-import { IsNotEmpty, IsNumberString, IsString } from "class-validator";
+import { IsEmpty, IsNotEmpty, IsNumberString, IsOptional, IsString } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 import { fileURLToPath } from "url";
+import { Type } from "class-transformer";
 
 export class CreatePosterDto {
   @ApiProperty({
-    type: String,
+    type: "string",
+    format: "binary",
     description: "Upload file image",
     required: false
   })
-  image: string;
+  @IsOptional()
+  @IsEmpty({ message: 'Image should be empty' })
+  image: any;
 
   @ApiProperty()
-  @IsString()
+  @IsString()  
   @IsNotEmpty()
   title: string; 
 
   @ApiProperty()
   @IsNumberString()
-  @IsNotEmpty()
+  @IsNotEmpty() 
   amount: number;
 
   @ApiProperty()

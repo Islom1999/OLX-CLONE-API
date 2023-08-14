@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param,ValidationPipe, UseInterceptors, UploadedFile, Delete, UsePipes, UseGuards, Query } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
-import { editedFileName } from 'src/utils/fileUpload';
+import { editedFileName, imageFileFilter } from 'src/utils/fileUpload';
 import { PostersService } from './posters.service';
 import { CreatePosterDto } from './dto/create-poster.dto';
 import { UpdatePosterDto } from './dto/update-poster.dto';
@@ -28,13 +28,14 @@ export class PostersController {
       storage: diskStorage({
         destination: './files',
         filename: editedFileName
-      })
+      }),
+      fileFilter: imageFileFilter
     })  
   )
   create(
     @Body() createPosterDto: CreatePosterDto,
     @GetCurrentUserId() userId: number,
-    @UploadedFile() image: Express.Multer.File
+    @UploadedFile() image: Express.Multer.File 
   ) {
     return this.postersService.create(createPosterDto, image, userId);
   }
