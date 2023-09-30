@@ -5,7 +5,7 @@ on:
     branches: [ master ] 
 
 env:
-  SERVER_HOST: 65.2.129.94
+  SERVER_HOST: 13.127.106.130
   SERVER_USERNAME: ubuntu
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -23,7 +23,7 @@ jobs:
         username: ${{ env.SERVER_USERNAME }}
         key: ${{ env.SSH_PRIVATE_KEY }}
         script: |
-          cd ~/OLX-CLONE-API/
+          cd ~/projects//OLX-CLONE-API/
           git pull
           npm install
           npx prisma migrate dev
