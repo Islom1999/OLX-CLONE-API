@@ -10,7 +10,7 @@ export class UpdatePosterDto extends PartialType(CreatePosterDto) {
   @IsNotEmpty()
   title: string;
 
-  @IsNumberString()
+  // @IsNumberString()
   @IsNotEmpty()
   amount: number;
 

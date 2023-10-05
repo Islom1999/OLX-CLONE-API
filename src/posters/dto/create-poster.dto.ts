@@ -20,7 +20,7 @@ export class CreatePosterDto {
   title: string; 
 
   @ApiProperty()
-  @IsNumberString()
+  // @IsNumberString()
   @IsNotEmpty() 
   amount: number;
 
@@ -35,7 +35,7 @@ export class CreatePosterDto {
   region: string; 
 
   @ApiProperty()
-  @IsNumberString()
+  // @IsNumberString()
   @IsNotEmpty()
   categoryId: number; 
 }
