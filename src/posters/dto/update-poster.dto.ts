@@ -21,4 +21,8 @@ export class UpdatePosterDto extends PartialType(CreatePosterDto) {
   @IsString()
   @IsNotEmpty()
   region: string;
+
+  // @IsNumberString()
+  @IsNotEmpty()
+  categoryId: number; 
 }
